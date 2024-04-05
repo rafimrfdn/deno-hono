@@ -1,6 +1,12 @@
 import { Hono } from 'https://deno.land/x/hono/mod.ts'
 import { serveStatic } from 'https://deno.land/x/hono/middleware.ts'
 
+import { Database } from "https://deno.land/x/sqlite3@LATEST_VERSION/mod.ts";
+
+const db = new Database("test.db");
+
+db.close();
+
 const app = new Hono()
 
 app.use('/static/*', serveStatic({ root: './' }))
