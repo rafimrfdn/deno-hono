@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>halo </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link href="css/style.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="https://unpkg.com/htmx.org@1.9.11"
+    integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
+    crossorigin="anonymous"></script>
+  <!-- <script src="./htmx.min.js"></script> -->
+</head>
+
+<body>
+
+  <h1>Deno + Express + Appscript + HTMX</h1>
+
+
+  <div>
+    <h2 id="counter">Counter: <span>0</span></h2>
+
+    <button hx-get="/api/increment" hx-swap="innerHTML" hx-target="#counter">increment counter</button>
+  </div>
+
+
+</body>
+
+</html>
