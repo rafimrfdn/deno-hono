@@ -15,13 +15,32 @@
 
 <body>
 
-  <h1>Deno + Express + Appscript + HTMX</h1>
+  <h1>Deno + Hono + Appscript + HTMX</h1>
 
+  <nav>
+    <a href="/">home</a>
+    <a href="/products">products</a>
+    <a href="/users">users</a>
+  </nav>
 
   <div>
     <h2 id="counter">Counter: <span>0</span></h2>
 
     <button hx-get="/api/increment" hx-swap="innerHTML" hx-target="#counter">increment counter</button>
+  </div>
+
+
+
+
+  <div>
+    <h2>Try submit data with HTMX</h2>
+    <form id="myForm" hx-post="/submit" hx-target="#response" style="max-width:300px;">
+      <input type="text" id="username" name="username" placeholder="Username" required>
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      <button type="submit" hx-swap="delete" hx-indicator="#loading">Submit</button>
+      <div id="loading" class="htmx-indicator">Submitting...</div>
+    </form>
+    <div id="response"></div>
   </div>
 
 
