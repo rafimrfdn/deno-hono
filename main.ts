@@ -1,9 +1,12 @@
 import { Hono } from 'https://deno.land/x/hono/mod.ts'
 import { serveStatic } from 'https://deno.land/x/hono/middleware.ts'
 
-import { Database } from "https://deno.land/x/sqlite3@LATEST_VERSION/mod.ts";
+import { Database } from "jsr:@db/sqlite@0.11";
 
 const db = new Database("test.db");
+
+const [version] = db.prepare("select sqlite_version()").value<[string]>()!;
+console.log(version);
 
 db.close();
 
